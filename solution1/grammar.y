@@ -9,9 +9,12 @@
         return 1;
     }
 
-    map<string,int> identifiers;
+//    # define YYINITDEPTH 1000000
+ //   # define YYMAXDEPTH 1000000
+  //  # define YYDEBUG 0
+  //  # define YYSTACK_ALLOC_MAXIMUM 1000000
 
-    char decode[100];
+    char decode[10000];
     int ptr = 0;
     void AddChar(char c){
         decode[ptr] = c;
@@ -79,7 +82,8 @@ H7: ROVID R6
     | BREAK { AddChar('A'); };
 
 R6: ROVID R7
-    | BREAK { AddChar('R'); };    
+    |HOSSZU H20
+    | BREAK { AddChar('R'); }; 
 
 R7: BREAK { AddChar('L'); };
 
@@ -133,6 +137,7 @@ R14: ROVID R15
     | BREAK { AddChar('G'); };
 
 R15: ROVID R16
+    | HOSSZU H22
     | BREAK { AddChar('Z'); };    
 
 R16: BREAK { AddChar('7'); };
@@ -153,11 +158,20 @@ H18: ROVID R19
 R19: BREAK { AddChar('9'); };
 H19: BREAK { AddChar('0'); };
 
+
+H20: ROVID R21
+R21: HOSSZU H21
+H21: BREAK { AddChar('.'); };
+
+H22: HOSSZU H23
+H23: BREAK { AddChar(','); };
+
 %%
 
 
 int main(){
-    if (yyparse() == 0){
+    int ret = yyparse();
+    if (ret == 0){
 
         for(int i = 0; i < ptr; i++){
             cout << decode[i];
@@ -166,6 +180,6 @@ int main(){
 
         cout<<"<ACC>\n";
     } 
-    else cout<<"ERROR\n";
+    else cout<<"ERROR: " << ret << "\n";
     return 0;
 }
