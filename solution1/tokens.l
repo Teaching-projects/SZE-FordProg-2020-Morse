@@ -14,6 +14,7 @@
 %%
 [\.]                   			return ROVID;
 [\-]                   			return HOSSZU;
+[/]                  			return SZOKOZ;
 
 [ ]                           	return BREAK;
 \n                              return '\0';

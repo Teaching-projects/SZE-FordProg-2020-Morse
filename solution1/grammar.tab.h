@@ -47,7 +47,8 @@ extern int yydebug;
   {
     BREAK = 258,
     ROVID = 259,
-    HOSSZU = 260
+    HOSSZU = 260,
+    SZOKOZ = 261
   };
 #endif
 
@@ -60,7 +61,7 @@ union YYSTYPE
 
     char name;
 
-#line 64 "grammar.tab.h" /* yacc.c:1909  */
+#line 65 "grammar.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
