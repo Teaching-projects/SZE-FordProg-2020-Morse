@@ -1792,7 +1792,7 @@ int main(int argc, char *argv[]){
         }
         
         auto duration = duration_cast<microseconds>(stop - start); 
-        cout << "Solution no. 1 - execution time: " << duration.count() << "\n";  
+        cout << "Solution no. 1 - execution time: " << duration.count() << " us\n";  
     } 
     else cout<<"ERROR: " << ret << "\n";
     return 0;
