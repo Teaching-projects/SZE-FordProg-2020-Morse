@@ -68,16 +68,15 @@
     #include <map>
     #include <string>
     #include <stdio.h>
+    #include <chrono> 
+
+    using namespace std::chrono; 
     using namespace std;
+
     int yylex();
     int yyerror(char* message){
         return 1;
     }
-
-//    # define YYINITDEPTH 1000000
- //   # define YYMAXDEPTH 1000000
-  //  # define YYDEBUG 0
-  //  # define YYSTACK_ALLOC_MAXIMUM 1000000
 
     char decode[10000];
     int ptr = 0;
@@ -86,7 +85,7 @@
         ptr++;
     }
 
-#line 90 "grammar.tab.c" /* yacc.c:339  */
+#line 89 "grammar.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -131,11 +130,11 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 25 "grammar.y" /* yacc.c:355  */
+#line 24 "grammar.y" /* yacc.c:355  */
 
     char name;
 
-#line 139 "grammar.tab.c" /* yacc.c:355  */
+#line 138 "grammar.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -152,7 +151,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 156 "grammar.tab.c" /* yacc.c:358  */
+#line 155 "grammar.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -449,7 +448,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    35,    35,    36,    39
+       0,    34,    34,    35,    38
 };
 #endif
 
@@ -1215,13 +1214,13 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 39 "grammar.y" /* yacc.c:1646  */
+#line 38 "grammar.y" /* yacc.c:1646  */
     { AddChar((yyvsp[0].name)); }
-#line 1221 "grammar.tab.c" /* yacc.c:1646  */
+#line 1220 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1225 "grammar.tab.c" /* yacc.c:1646  */
+#line 1224 "grammar.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1449,20 +1448,29 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 43 "grammar.y" /* yacc.c:1906  */
+#line 42 "grammar.y" /* yacc.c:1906  */
 
 
 
-int main(){
+int main(int argc, char *argv[]){
+
+    auto start = std::chrono::high_resolution_clock::now(); 
     int ret = yyparse();
+    auto stop = std::chrono::high_resolution_clock::now();
     if (ret == 0){
 
-        for(int i = 0; i < ptr; i++){
-            cout << decode[i];
-        }
-        cout << endl;
+        if(argc == 1){
 
-        cout<<"<ACC>\n";
+            for(int i = 0; i < ptr; i++){
+                cout << decode[i];
+            }
+            cout << endl;
+
+            cout<<"<ACC>\n";
+        }
+
+        auto duration = duration_cast<microseconds>(stop - start); 
+        cout << "Solution no. 3 - execution time: " << duration.count() << "\n";  
     } 
     else cout<<"ERROR: " << ret << "\n";
     return 0;

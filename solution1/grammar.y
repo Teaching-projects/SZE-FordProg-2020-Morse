@@ -3,16 +3,14 @@
     #include <map>
     #include <string>
     #include <stdio.h>
+    #include <chrono> 
+
+    using namespace std::chrono; 
     using namespace std;
     int yylex();
     int yyerror(char* message){
         return 1;
     }
-
-//    # define YYINITDEPTH 1000000
- //   # define YYMAXDEPTH 1000000
-  //  # define YYDEBUG 0
-  //  # define YYSTACK_ALLOC_MAXIMUM 1000000
 
     char decode[10000];
     int ptr = 0;
@@ -169,16 +167,24 @@ H23: BREAK { AddChar(','); };
 %%
 
 
-int main(){
+int main(int argc, char *argv[]){
+    auto start = std::chrono::high_resolution_clock::now(); 
     int ret = yyparse();
+    auto stop = std::chrono::high_resolution_clock::now();
     if (ret == 0){
 
-        for(int i = 0; i < ptr; i++){
-            cout << decode[i];
-        }
-        cout << endl;
+        if(argc == 1){
+            for(int i = 0; i < ptr; i++){
+                cout << decode[i];
+            }
+            cout << endl;
 
-        cout<<"<ACC>\n";
+            cout<<"<ACC>\n";
+
+        }
+        
+        auto duration = duration_cast<microseconds>(stop - start); 
+        cout << "Solution no. 1 - execution time: " << duration.count() << "\n";  
     } 
     else cout<<"ERROR: " << ret << "\n";
     return 0;

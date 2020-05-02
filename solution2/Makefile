@@ -1,5 +1,5 @@
 a.out: lex.yy.c grammar.tab.c grammar.tab.h
-	g++ lex.yy.c grammar.tab.c
+	g++ lex.yy.c grammar.tab.c -std=c++11
 
 lex.yy.c: tokens.l
 	flex tokens.l

@@ -68,16 +68,15 @@
     #include <map>
     #include <string>
     #include <stdio.h>
+    #include <chrono> 
+
+    using namespace std::chrono; 
     using namespace std;
     int yylex();
     int yyerror(char* message){
         return 1;
     }
 
-//    # define YYINITDEPTH 1000000
- //   # define YYMAXDEPTH 1000000
-  //  # define YYDEBUG 0
-  //  # define YYSTACK_ALLOC_MAXIMUM 1000000
 
     char decode[10000];
     int ptr = 0;
@@ -86,7 +85,7 @@
         ptr++;
     }
 
-#line 90 "grammar.tab.c" /* yacc.c:339  */
+#line 89 "grammar.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -133,11 +132,11 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 25 "grammar.y" /* yacc.c:355  */
+#line 24 "grammar.y" /* yacc.c:355  */
 
     char name;
 
-#line 141 "grammar.tab.c" /* yacc.c:355  */
+#line 140 "grammar.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -154,7 +153,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 158 "grammar.tab.c" /* yacc.c:358  */
+#line 157 "grammar.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -452,11 +451,11 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    37,    37,    38,    41,    42,    43,    44,    45,    46,
-      47,    48,    49,    50,    51,    52,    53,    54,    55,    56,
-      57,    58,    59,    60,    61,    62,    63,    64,    65,    66,
-      67,    68,    69,    70,    71,    72,    73,    74,    75,    76,
-      77,    78,    79
+       0,    36,    36,    37,    40,    41,    42,    43,    44,    45,
+      46,    47,    48,    49,    50,    51,    52,    53,    54,    55,
+      56,    57,    58,    59,    60,    61,    62,    63,    64,    65,
+      66,    67,    68,    69,    70,    71,    72,    73,    74,    75,
+      76,    77,    78
 };
 #endif
 
@@ -1272,241 +1271,241 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 41 "grammar.y" /* yacc.c:1646  */
+#line 40 "grammar.y" /* yacc.c:1646  */
     { AddChar('E'); }
-#line 1278 "grammar.tab.c" /* yacc.c:1646  */
+#line 1277 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 42 "grammar.y" /* yacc.c:1646  */
+#line 41 "grammar.y" /* yacc.c:1646  */
     { AddChar('I'); }
-#line 1284 "grammar.tab.c" /* yacc.c:1646  */
+#line 1283 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 43 "grammar.y" /* yacc.c:1646  */
+#line 42 "grammar.y" /* yacc.c:1646  */
     { AddChar('S'); }
-#line 1290 "grammar.tab.c" /* yacc.c:1646  */
+#line 1289 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 44 "grammar.y" /* yacc.c:1646  */
+#line 43 "grammar.y" /* yacc.c:1646  */
     { AddChar('H'); }
-#line 1296 "grammar.tab.c" /* yacc.c:1646  */
+#line 1295 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 45 "grammar.y" /* yacc.c:1646  */
+#line 44 "grammar.y" /* yacc.c:1646  */
     { AddChar('5'); }
-#line 1302 "grammar.tab.c" /* yacc.c:1646  */
+#line 1301 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 46 "grammar.y" /* yacc.c:1646  */
+#line 45 "grammar.y" /* yacc.c:1646  */
     { AddChar('4'); }
-#line 1308 "grammar.tab.c" /* yacc.c:1646  */
+#line 1307 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 47 "grammar.y" /* yacc.c:1646  */
+#line 46 "grammar.y" /* yacc.c:1646  */
     { AddChar('V'); }
-#line 1314 "grammar.tab.c" /* yacc.c:1646  */
+#line 1313 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 48 "grammar.y" /* yacc.c:1646  */
+#line 47 "grammar.y" /* yacc.c:1646  */
     { AddChar('3'); }
-#line 1320 "grammar.tab.c" /* yacc.c:1646  */
+#line 1319 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 49 "grammar.y" /* yacc.c:1646  */
+#line 48 "grammar.y" /* yacc.c:1646  */
     { AddChar('U'); }
-#line 1326 "grammar.tab.c" /* yacc.c:1646  */
+#line 1325 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 50 "grammar.y" /* yacc.c:1646  */
+#line 49 "grammar.y" /* yacc.c:1646  */
     { AddChar('F'); }
-#line 1332 "grammar.tab.c" /* yacc.c:1646  */
+#line 1331 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 51 "grammar.y" /* yacc.c:1646  */
+#line 50 "grammar.y" /* yacc.c:1646  */
     { AddChar('2'); }
-#line 1338 "grammar.tab.c" /* yacc.c:1646  */
+#line 1337 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 52 "grammar.y" /* yacc.c:1646  */
+#line 51 "grammar.y" /* yacc.c:1646  */
     { AddChar('A'); }
-#line 1344 "grammar.tab.c" /* yacc.c:1646  */
+#line 1343 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 53 "grammar.y" /* yacc.c:1646  */
+#line 52 "grammar.y" /* yacc.c:1646  */
     { AddChar('R'); }
-#line 1350 "grammar.tab.c" /* yacc.c:1646  */
+#line 1349 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 54 "grammar.y" /* yacc.c:1646  */
+#line 53 "grammar.y" /* yacc.c:1646  */
     { AddChar('L'); }
-#line 1356 "grammar.tab.c" /* yacc.c:1646  */
+#line 1355 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 55 "grammar.y" /* yacc.c:1646  */
+#line 54 "grammar.y" /* yacc.c:1646  */
     { AddChar('W'); }
-#line 1362 "grammar.tab.c" /* yacc.c:1646  */
+#line 1361 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 56 "grammar.y" /* yacc.c:1646  */
+#line 55 "grammar.y" /* yacc.c:1646  */
     { AddChar('P'); }
-#line 1368 "grammar.tab.c" /* yacc.c:1646  */
+#line 1367 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 57 "grammar.y" /* yacc.c:1646  */
+#line 56 "grammar.y" /* yacc.c:1646  */
     { AddChar('J'); }
-#line 1374 "grammar.tab.c" /* yacc.c:1646  */
+#line 1373 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 58 "grammar.y" /* yacc.c:1646  */
+#line 57 "grammar.y" /* yacc.c:1646  */
     { AddChar('1'); }
-#line 1380 "grammar.tab.c" /* yacc.c:1646  */
+#line 1379 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 59 "grammar.y" /* yacc.c:1646  */
+#line 58 "grammar.y" /* yacc.c:1646  */
     { AddChar('T'); }
-#line 1386 "grammar.tab.c" /* yacc.c:1646  */
+#line 1385 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 60 "grammar.y" /* yacc.c:1646  */
+#line 59 "grammar.y" /* yacc.c:1646  */
     { AddChar('N'); }
-#line 1392 "grammar.tab.c" /* yacc.c:1646  */
+#line 1391 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 61 "grammar.y" /* yacc.c:1646  */
+#line 60 "grammar.y" /* yacc.c:1646  */
     { AddChar('D'); }
-#line 1398 "grammar.tab.c" /* yacc.c:1646  */
+#line 1397 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 62 "grammar.y" /* yacc.c:1646  */
+#line 61 "grammar.y" /* yacc.c:1646  */
     { AddChar('B'); }
-#line 1404 "grammar.tab.c" /* yacc.c:1646  */
+#line 1403 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 63 "grammar.y" /* yacc.c:1646  */
+#line 62 "grammar.y" /* yacc.c:1646  */
     { AddChar('6'); }
-#line 1410 "grammar.tab.c" /* yacc.c:1646  */
+#line 1409 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 64 "grammar.y" /* yacc.c:1646  */
+#line 63 "grammar.y" /* yacc.c:1646  */
     { AddChar('X'); }
-#line 1416 "grammar.tab.c" /* yacc.c:1646  */
+#line 1415 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 65 "grammar.y" /* yacc.c:1646  */
+#line 64 "grammar.y" /* yacc.c:1646  */
     { AddChar('K'); }
-#line 1422 "grammar.tab.c" /* yacc.c:1646  */
+#line 1421 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 66 "grammar.y" /* yacc.c:1646  */
+#line 65 "grammar.y" /* yacc.c:1646  */
     { AddChar('C'); }
-#line 1428 "grammar.tab.c" /* yacc.c:1646  */
+#line 1427 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 67 "grammar.y" /* yacc.c:1646  */
+#line 66 "grammar.y" /* yacc.c:1646  */
     { AddChar('Y'); }
-#line 1434 "grammar.tab.c" /* yacc.c:1646  */
+#line 1433 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 68 "grammar.y" /* yacc.c:1646  */
+#line 67 "grammar.y" /* yacc.c:1646  */
     { AddChar('M'); }
-#line 1440 "grammar.tab.c" /* yacc.c:1646  */
+#line 1439 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 69 "grammar.y" /* yacc.c:1646  */
+#line 68 "grammar.y" /* yacc.c:1646  */
     { AddChar('G'); }
-#line 1446 "grammar.tab.c" /* yacc.c:1646  */
+#line 1445 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 70 "grammar.y" /* yacc.c:1646  */
+#line 69 "grammar.y" /* yacc.c:1646  */
     { AddChar('Z'); }
-#line 1452 "grammar.tab.c" /* yacc.c:1646  */
+#line 1451 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 71 "grammar.y" /* yacc.c:1646  */
+#line 70 "grammar.y" /* yacc.c:1646  */
     { AddChar('7'); }
-#line 1458 "grammar.tab.c" /* yacc.c:1646  */
+#line 1457 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 72 "grammar.y" /* yacc.c:1646  */
+#line 71 "grammar.y" /* yacc.c:1646  */
     { AddChar('Q'); }
-#line 1464 "grammar.tab.c" /* yacc.c:1646  */
+#line 1463 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 73 "grammar.y" /* yacc.c:1646  */
+#line 72 "grammar.y" /* yacc.c:1646  */
     { AddChar('O'); }
-#line 1470 "grammar.tab.c" /* yacc.c:1646  */
+#line 1469 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 74 "grammar.y" /* yacc.c:1646  */
+#line 73 "grammar.y" /* yacc.c:1646  */
     { AddChar('8'); }
-#line 1476 "grammar.tab.c" /* yacc.c:1646  */
+#line 1475 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 75 "grammar.y" /* yacc.c:1646  */
+#line 74 "grammar.y" /* yacc.c:1646  */
     { AddChar('9'); }
-#line 1482 "grammar.tab.c" /* yacc.c:1646  */
+#line 1481 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 76 "grammar.y" /* yacc.c:1646  */
+#line 75 "grammar.y" /* yacc.c:1646  */
     { AddChar('0'); }
-#line 1488 "grammar.tab.c" /* yacc.c:1646  */
+#line 1487 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 77 "grammar.y" /* yacc.c:1646  */
+#line 76 "grammar.y" /* yacc.c:1646  */
     { AddChar(','); }
-#line 1494 "grammar.tab.c" /* yacc.c:1646  */
+#line 1493 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 78 "grammar.y" /* yacc.c:1646  */
+#line 77 "grammar.y" /* yacc.c:1646  */
     { AddChar('.'); }
-#line 1500 "grammar.tab.c" /* yacc.c:1646  */
+#line 1499 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 79 "grammar.y" /* yacc.c:1646  */
+#line 78 "grammar.y" /* yacc.c:1646  */
     { AddChar(' '); }
-#line 1506 "grammar.tab.c" /* yacc.c:1646  */
+#line 1505 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1510 "grammar.tab.c" /* yacc.c:1646  */
+#line 1509 "grammar.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1734,20 +1733,27 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 83 "grammar.y" /* yacc.c:1906  */
+#line 82 "grammar.y" /* yacc.c:1906  */
 
 
 
-int main(){
+int main(int argc, char *argv[]){
+    auto start = std::chrono::high_resolution_clock::now(); 
     int ret = yyparse();
+    auto stop = std::chrono::high_resolution_clock::now();
     if (ret == 0){
 
-        for(int i = 0; i < ptr; i++){
-            cout << decode[i];
-        }
-        cout << endl;
+        if(argc == 1){
+            for(int i = 0; i < ptr; i++){
+                cout << decode[i];
+            }
+            cout << endl;
 
-        cout<<"<ACC>\n";
+            cout<<"<ACC>\n";
+        }
+
+        auto duration = duration_cast<microseconds>(stop - start); 
+        cout << "Solution no. 2 - execution time: " << duration.count() << "\n";  
     } 
     else cout<<"ERROR: " << ret << "\n";
     return 0;
