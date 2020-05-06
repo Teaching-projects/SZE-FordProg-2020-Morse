@@ -509,11 +509,23 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "tokens.l"
 #line 3 "tokens.l"
-    #include "grammar.tab.h"
-    #include <cstring>
     #include <iostream>
+    #include <map>
+    #include <string>
+    #include <stdio.h>
+    #include <chrono> 
+
+    using namespace std::chrono; 
     using namespace std;
-#line 517 "lex.yy.c"
+
+    char decode[10000];
+    int ptr = 0;
+    void AddChar(char c){
+        decode[ptr] = c;
+        ptr++;
+    }
+
+#line 529 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -731,9 +743,9 @@ YY_DECL
 		}
 
 	{
-#line 20 "tokens.l"
+#line 32 "tokens.l"
 
-#line 737 "lex.yy.c"
+#line 749 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -792,211 +804,211 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 21 "tokens.l"
-yylval.name='E'; return SYMBOL;
+#line 33 "tokens.l"
+AddChar('E'); 
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 22 "tokens.l"
-yylval.name='I'; return SYMBOL;
+#line 34 "tokens.l"
+AddChar('I'); 
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "tokens.l"
-yylval.name='S'; return SYMBOL;
+#line 35 "tokens.l"
+AddChar('S'); 
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "tokens.l"
-yylval.name='H'; return SYMBOL;
+#line 36 "tokens.l"
+AddChar('H'); 
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "tokens.l"
-yylval.name='5'; return SYMBOL;
+#line 37 "tokens.l"
+AddChar('5'); 
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 26 "tokens.l"
-yylval.name='4'; return SYMBOL;
+#line 38 "tokens.l"
+AddChar('4'); 
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 28 "tokens.l"
-yylval.name='V'; return SYMBOL;
+#line 40 "tokens.l"
+AddChar('V'); 
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 29 "tokens.l"
-yylval.name='3'; return SYMBOL;
+#line 41 "tokens.l"
+AddChar('3'); 
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 31 "tokens.l"
-yylval.name='U'; return SYMBOL;
+#line 43 "tokens.l"
+AddChar('U'); 
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 32 "tokens.l"
-yylval.name='F'; return SYMBOL;
+#line 44 "tokens.l"
+AddChar('F'); 
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 33 "tokens.l"
-yylval.name='2'; return SYMBOL;
+#line 45 "tokens.l"
+AddChar('2'); 
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 36 "tokens.l"
-yylval.name='A'; return SYMBOL;
+#line 48 "tokens.l"
+AddChar('A'); 
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 37 "tokens.l"
-yylval.name='R'; return SYMBOL;
+#line 49 "tokens.l"
+AddChar('R'); 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 38 "tokens.l"
-yylval.name='L'; return SYMBOL;
+#line 50 "tokens.l"
+AddChar('L'); 
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 39 "tokens.l"
-yylval.name='W'; return SYMBOL;
+#line 51 "tokens.l"
+AddChar('W'); 
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 40 "tokens.l"
-yylval.name='P'; return SYMBOL;
+#line 52 "tokens.l"
+AddChar('P'); 
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 41 "tokens.l"
-yylval.name='J'; return SYMBOL;
+#line 53 "tokens.l"
+AddChar('J'); 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 42 "tokens.l"
-yylval.name='1'; return SYMBOL;
+#line 54 "tokens.l"
+AddChar('1'); 
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 45 "tokens.l"
-yylval.name='T'; return SYMBOL;
+#line 57 "tokens.l"
+AddChar('T'); 
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 46 "tokens.l"
-yylval.name='N'; return SYMBOL;
+#line 58 "tokens.l"
+AddChar('N'); 
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 47 "tokens.l"
-yylval.name='D'; return SYMBOL;
+#line 59 "tokens.l"
+AddChar('D'); 
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 48 "tokens.l"
-yylval.name='B'; return SYMBOL;
+#line 60 "tokens.l"
+AddChar('B'); 
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 49 "tokens.l"
-yylval.name='6'; return SYMBOL;
+#line 61 "tokens.l"
+AddChar('6'); 
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 50 "tokens.l"
-yylval.name='X'; return SYMBOL;
+#line 62 "tokens.l"
+AddChar('X'); 
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 51 "tokens.l"
-yylval.name='K'; return SYMBOL;
+#line 63 "tokens.l"
+AddChar('K'); 
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 52 "tokens.l"
-yylval.name='C'; return SYMBOL;
+#line 64 "tokens.l"
+AddChar('C'); 
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 53 "tokens.l"
-yylval.name='Y'; return SYMBOL;
+#line 65 "tokens.l"
+AddChar('Y'); 
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 55 "tokens.l"
-yylval.name='M'; return SYMBOL;
+#line 67 "tokens.l"
+AddChar('M'); 
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 56 "tokens.l"
-yylval.name='G'; return SYMBOL;
+#line 68 "tokens.l"
+AddChar('G'); 
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 57 "tokens.l"
-yylval.name='Z'; return SYMBOL;
+#line 69 "tokens.l"
+AddChar('Z'); 
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 58 "tokens.l"
-yylval.name='7'; return SYMBOL;
+#line 70 "tokens.l"
+AddChar('7'); 
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 59 "tokens.l"
-yylval.name='Q'; return SYMBOL;
+#line 71 "tokens.l"
+AddChar('Q'); 
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 60 "tokens.l"
-yylval.name='O'; return SYMBOL;
+#line 72 "tokens.l"
+AddChar('O'); 
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 61 "tokens.l"
-yylval.name='0'; return SYMBOL;
+#line 73 "tokens.l"
+AddChar('0'); 
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 62 "tokens.l"
-yylval.name='9'; return SYMBOL;
+#line 74 "tokens.l"
+AddChar('9'); 
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 65 "tokens.l"
-yylval.name=' '; return SYMBOL;
+#line 77 "tokens.l"
+AddChar(' '); 
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 67 "tokens.l"
-yylval.name=','; return SYMBOL;
+#line 79 "tokens.l"
+AddChar(','); 
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 68 "tokens.l"
-yylval.name='.'; return SYMBOL;
+#line 80 "tokens.l"
+AddChar('.'); 
 	YY_BREAK
 case 39:
 /* rule 39 can match eol */
 YY_RULE_SETUP
-#line 70 "tokens.l"
+#line 82 "tokens.l"
 return '\0';
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 72 "tokens.l"
-return NOTINTHEABC;
+#line 84 "tokens.l"
+;
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 74 "tokens.l"
+#line 86 "tokens.l"
 ECHO;
 	YY_BREAK
-#line 1000 "lex.yy.c"
+#line 1012 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1997,9 +2009,33 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 74 "tokens.l"
+#line 86 "tokens.l"
 
 
 
+
+int main(int argc, char *argv[]){
+
+    auto start = std::chrono::high_resolution_clock::now(); 
+    int ret = yylex();
+    auto stop = std::chrono::high_resolution_clock::now();
+    if (ret == 0){
+
+        if(argc == 1){
+
+            for(int i = 0; i < ptr; i++){
+                cout << decode[i];
+            }
+            cout << endl;
+
+            cout<<"<ACC>\n";
+        }
+
+        auto duration = duration_cast<microseconds>(stop - start); 
+        cout << "Solution no. 3 - execution time: " << duration.count() << " us \n";  
+    } 
+    else cout<<"ERROR: " << ret << "\n";
+    return 0;
+}
 
 
