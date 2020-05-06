@@ -46,9 +46,9 @@ extern int yydebug;
   enum yytokentype
   {
     BREAK = 258,
-    ROVID = 259,
-    HOSSZU = 260,
-    SZOKOZ = 261
+    SHORT = 259,
+    LONG = 260,
+    SPACE = 261
   };
 #endif
 

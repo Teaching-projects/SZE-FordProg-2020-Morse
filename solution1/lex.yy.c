@@ -751,17 +751,17 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 15 "tokens.l"
-return ROVID;
+return SHORT;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 16 "tokens.l"
-return HOSSZU;
+return LONG;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 17 "tokens.l"
-return SZOKOZ;
+return SPACE;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
