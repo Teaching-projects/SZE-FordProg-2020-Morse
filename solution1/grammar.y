@@ -5,16 +5,33 @@
     #include <stdio.h>
     #include <chrono> 
 
+
+    //#define YYSTACK_USE_ALLOCA 0
+    //#define YYSTACK_ALLOC_MAXIMUM 1
+
+    #define YYINITDEPTH 200
+    #define YYMAXDEPTH 200000000
+
+    #define YYDEBUG 1
+    #define YYERROR_VERBOSE 1
+
+    #define YYSIZE_T unsigned long long int
+
     using namespace std::chrono; 
     using namespace std;
     int yylex();
-    int yyerror(char* message){
+    int yyerror(char const *message){
+        printf("%s\r\n", message);
         return 1;
     }
 
-    char decode[10000];
+    #define DECODE_BUFFER_SIZE 1000000
+    char decode[DECODE_BUFFER_SIZE];
     int ptr = 0;
     void AddChar(char c){
+        if(ptr >= DECODE_BUFFER_SIZE)
+        return;
+
         decode[ptr] = c;
         ptr++;
     }
@@ -188,7 +205,7 @@ int main(int argc, char *argv[]){
         }
         
         auto duration = duration_cast<microseconds>(stop - start); 
-        cout << "Solution no. 1 - execution time: " << duration.count() << " us\n";  
+        cout << "1;" << duration.count() << ";";  
     } 
     else cout<<"ERROR: " << ret << "\n";
     return 0;

@@ -9,9 +9,13 @@
     using namespace std::chrono; 
     using namespace std;
 
-    char decode[10000];
+    #define DECODE_BUFFER_SIZE 1000000
+    char decode[DECODE_BUFFER_SIZE];
     int ptr = 0;
     void AddChar(char c){
+        if(ptr >= DECODE_BUFFER_SIZE)
+        return;
+        
         decode[ptr] = c;
         ptr++;
     }
@@ -104,7 +108,8 @@ int main(int argc, char *argv[]){
         }
 
         auto duration = duration_cast<microseconds>(stop - start); 
-        cout << "Solution no. 3 - execution time: " << duration.count() << " us \n";  
+        //cout << "Solution no. 3 - execution time: " << duration.count() << " us \n"; 
+        cout << "3;" << duration.count() << ";";   
     } 
     else cout<<"ERROR: " << ret << "\n";
     return 0;
