@@ -1,76 +1,117 @@
 
 %{
-    #include "grammar.tab.h"
-    #include <cstring>
     #include <iostream>
+    #include <map>
+    #include <string>
+    #include <stdio.h>
+    #include <chrono> 
+
+    using namespace std::chrono; 
     using namespace std;
+
+    #define DECODE_BUFFER_SIZE 1000000
+    char decode[DECODE_BUFFER_SIZE];
+    int ptr = 0;
+    void AddChar(char c){
+        if(ptr >= DECODE_BUFFER_SIZE)
+        return;
+        
+        decode[ptr] = c;
+        ptr++;
+    }
+
 %}
 
 
 %option noyywrap
 
-ROVID [\.]
-HOSSZU [\-]
+SHORT [\.]
+LONG [\-]
 BREAK [\ ]
-SZOKOZ [\/]
+SPACE [\/]
 
 DIGITS  [0-9]
 ALPHABET [a-zA-Z]
 
 %%
-{ROVID}{BREAK}											yylval.name='E'; return SYMBOL;
-{ROVID}{ROVID}{BREAK}									yylval.name='I'; return SYMBOL;
-{ROVID}{ROVID}{ROVID}{BREAK}							yylval.name='S'; return SYMBOL;
-{ROVID}{ROVID}{ROVID}{ROVID}{BREAK}						yylval.name='H'; return SYMBOL;
-{ROVID}{ROVID}{ROVID}{ROVID}{ROVID}{BREAK}				yylval.name='5'; return SYMBOL;
-{ROVID}{ROVID}{ROVID}{ROVID}{HOSSZU}{BREAK}				yylval.name='4'; return SYMBOL;
+{SHORT}{BREAK}											AddChar('E'); 
+{SHORT}{SHORT}{BREAK}									AddChar('I'); 
+{SHORT}{SHORT}{SHORT}{BREAK}							AddChar('S'); 
+{SHORT}{SHORT}{SHORT}{SHORT}{BREAK}						AddChar('H'); 
+{SHORT}{SHORT}{SHORT}{SHORT}{SHORT}{BREAK}				AddChar('5'); 
+{SHORT}{SHORT}{SHORT}{SHORT}{LONG}{BREAK}				AddChar('4'); 
 
-{ROVID}{ROVID}{ROVID}{HOSSZU}{BREAK}					yylval.name='V'; return SYMBOL;
-{ROVID}{ROVID}{ROVID}{HOSSZU}{HOSSZU}{BREAK}			yylval.name='3'; return SYMBOL;
+{SHORT}{SHORT}{SHORT}{LONG}{BREAK}					    AddChar('V'); 
+{SHORT}{SHORT}{SHORT}{LONG}{LONG}{BREAK}			    AddChar('3'); 
 
-{ROVID}{ROVID}{HOSSZU}{BREAK}							yylval.name='U'; return SYMBOL;
-{ROVID}{ROVID}{HOSSZU}{ROVID}{BREAK}					yylval.name='F'; return SYMBOL;
-{ROVID}{ROVID}{HOSSZU}{HOSSZU}{HOSSZU}{BREAK}			yylval.name='2'; return SYMBOL;
-
-
-{ROVID}{HOSSZU}{BREAK}									yylval.name='A'; return SYMBOL;
-{ROVID}{HOSSZU}{ROVID}{BREAK}							yylval.name='R'; return SYMBOL;
-{ROVID}{HOSSZU}{ROVID}{ROVID}{BREAK}					yylval.name='L'; return SYMBOL;
-{ROVID}{HOSSZU}{HOSSZU}{BREAK}							yylval.name='W'; return SYMBOL;
-{ROVID}{HOSSZU}{HOSSZU}{ROVID}{BREAK}					yylval.name='P'; return SYMBOL;
-{ROVID}{HOSSZU}{HOSSZU}{HOSSZU}{BREAK}					yylval.name='J'; return SYMBOL;
-{ROVID}{HOSSZU}{HOSSZU}{HOSSZU}{HOSSZU}{BREAK}			yylval.name='1'; return SYMBOL;
+{SHORT}{SHORT}{LONG}{BREAK}							    AddChar('U'); 
+{SHORT}{SHORT}{LONG}{SHORT}{BREAK}					    AddChar('F'); 
+{SHORT}{SHORT}{LONG}{LONG}{LONG}{BREAK}			        AddChar('2'); 
 
 
-{HOSSZU}{BREAK}											yylval.name='T'; return SYMBOL;
-{HOSSZU}{ROVID}{BREAK}									yylval.name='N'; return SYMBOL;
-{HOSSZU}{ROVID}{ROVID}{BREAK}							yylval.name='D'; return SYMBOL;
-{HOSSZU}{ROVID}{ROVID}{ROVID}{BREAK}					yylval.name='B'; return SYMBOL;
-{HOSSZU}{ROVID}{ROVID}{ROVID}{ROVID}{BREAK}				yylval.name='6'; return SYMBOL;
-{HOSSZU}{ROVID}{ROVID}{HOSSZU}{BREAK}					yylval.name='X'; return SYMBOL;
-{HOSSZU}{ROVID}{HOSSZU}{BREAK}							yylval.name='K'; return SYMBOL;
-{HOSSZU}{ROVID}{HOSSZU}{ROVID}{BREAK}					yylval.name='C'; return SYMBOL;
-{HOSSZU}{ROVID}{HOSSZU}{HOSSZU}{BREAK}					yylval.name='Y'; return SYMBOL;
-
-{HOSSZU}{HOSSZU}{BREAK}									yylval.name='M'; return SYMBOL;
-{HOSSZU}{HOSSZU}{ROVID}{BREAK}							yylval.name='G'; return SYMBOL;
-{HOSSZU}{HOSSZU}{ROVID}{ROVID}{BREAK}					yylval.name='Z'; return SYMBOL;
-{HOSSZU}{HOSSZU}{ROVID}{ROVID}{ROVID}{BREAK}			yylval.name='7'; return SYMBOL;
-{HOSSZU}{HOSSZU}{ROVID}{HOSSZU}{BREAK}					yylval.name='Q'; return SYMBOL;
-{HOSSZU}{HOSSZU}{HOSSZU}{BREAK}							yylval.name='O'; return SYMBOL;
-{HOSSZU}{HOSSZU}{HOSSZU}{HOSSZU}{HOSSZU}{BREAK}			yylval.name='0'; return SYMBOL;
-{HOSSZU}{HOSSZU}{HOSSZU}{HOSSZU}{ROVID}{BREAK}			yylval.name='9'; return SYMBOL;
+{SHORT}{LONG}{BREAK}								    AddChar('A'); 
+{SHORT}{LONG}{SHORT}{BREAK}							    AddChar('R'); 
+{SHORT}{LONG}{SHORT}{SHORT}{BREAK}					    AddChar('L'); 
+{SHORT}{LONG}{LONG}{BREAK}							    AddChar('W'); 
+{SHORT}{LONG}{LONG}{SHORT}{BREAK}					    AddChar('P'); 
+{SHORT}{LONG}{LONG}{LONG}{BREAK}					    AddChar('J'); 
+{SHORT}{LONG}{LONG}{LONG}{LONG}{BREAK}			        AddChar('1'); 
 
 
-{SZOKOZ}{BREAK}											yylval.name=' '; return SYMBOL;
+{LONG}{BREAK}											AddChar('T'); 
+{LONG}{SHORT}{BREAK}									AddChar('N'); 
+{LONG}{SHORT}{SHORT}{BREAK}							    AddChar('D'); 
+{LONG}{SHORT}{SHORT}{SHORT}{BREAK}					    AddChar('B'); 
+{LONG}{SHORT}{SHORT}{SHORT}{SHORT}{BREAK}				AddChar('6'); 
+{LONG}{SHORT}{SHORT}{LONG}{BREAK}					    AddChar('X'); 
+{LONG}{SHORT}{LONG}{BREAK}							    AddChar('K'); 
+{LONG}{SHORT}{LONG}{SHORT}{BREAK}					    AddChar('C'); 
+{LONG}{SHORT}{LONG}{LONG}{BREAK}					    AddChar('Y'); 
 
-{HOSSZU}{HOSSZU}{ROVID}{ROVID}{HOSSZU}{HOSSZU}{BREAK}   yylval.name=','; return SYMBOL;
-{ROVID}{HOSSZU}{ROVID}{HOSSZU}{ROVID}{HOSSZU}{BREAK}    yylval.name='.'; return SYMBOL;
+{LONG}{LONG}{BREAK}									    AddChar('M'); 
+{LONG}{LONG}{SHORT}{BREAK}							    AddChar('G'); 
+{LONG}{LONG}{SHORT}{SHORT}{BREAK}					    AddChar('Z'); 
+{LONG}{LONG}{SHORT}{SHORT}{SHORT}{BREAK}			    AddChar('7'); 
+{LONG}{LONG}{SHORT}{LONG}{BREAK}					    AddChar('Q'); 
+{LONG}{LONG}{LONG}{BREAK}							    AddChar('O'); 
+{LONG}{LONG}{LONG}{LONG}{LONG}{BREAK}			        AddChar('0'); 
+{LONG}{LONG}{LONG}{LONG}{SHORT}{BREAK}			        AddChar('9'); 
+
+
+{SPACE}{BREAK}											AddChar(' '); 
+
+{LONG}{LONG}{SHORT}{SHORT}{LONG}{LONG}{BREAK}           AddChar(','); 
+{SHORT}{LONG}{SHORT}{LONG}{SHORT}{LONG}{BREAK}          AddChar('.'); 
 
 \n                              return '\0';
 
-{ALPHABET}({ALPHABET}|{DIGITS})*    					return NOTINTHEABC;
+{ALPHABET}({ALPHABET}|{DIGITS})*    					;
 
 %% 
 
+
+int main(int argc, char *argv[]){
+
+    auto start = std::chrono::high_resolution_clock::now(); 
+    int ret = yylex();
+    auto stop = std::chrono::high_resolution_clock::now();
+    if (ret == 0){
+
+        if(argc == 1){
+
+            for(int i = 0; i < ptr; i++){
+                cout << decode[i];
+            }
+            cout << endl;
+
+            cout<<"<ACC>\n";
+        }
+
+        auto duration = duration_cast<microseconds>(stop - start); 
+        //cout << "Solution no. 3 - execution time: " << duration.count() << " us \n"; 
+        cout << "3;" << duration.count() << ";";   
+    } 
+    else cout<<"ERROR: " << ret << "\n";
+    return 0;
+}
 

@@ -1,9 +1,9 @@
-
 %{
     #include "grammar.tab.h"
     #include <cstring>
     #include <iostream>
     using namespace std;
+
 %}
 
 
@@ -12,9 +12,9 @@
 
 
 %%
-[\.]                   			return ROVID;
-[\-]                   			return HOSSZU;
-[/]                  			return SZOKOZ;
+[\.]                   			return SHORT;
+[\-]                   			return LONG;
+[/]                  			return SPACE;
 
 [ ]                           	return BREAK;
 \n                              return '\0';

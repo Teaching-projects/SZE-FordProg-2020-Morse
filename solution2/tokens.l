@@ -12,9 +12,9 @@
 
 
 %%
-[\.]                   			return ROVID;
-[\-]                   			return HOSSZU;
-[/]                  			return SZOKOZ;
+[\.]                   			return SHORT;
+[\-]                   			return LONG;
+[/]                  			return SPACE;
 
 [ ]                           	return BREAK;
 \n                              return '\0';

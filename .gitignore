@@ -53,3 +53,13 @@ dkms.conf
 
 *.sublime-project
 *.sublime-workspace
+
+solution1/grammar.tab.h
+solution1/grammar.tab.c
+solution1/lex.yy.c
+
+solution2/grammar.tab.h
+solution2/grammar.tab.c
+solution2/lex.yy.c
+
+solution3/lex.yy.c
